@@ -4,10 +4,11 @@ step "manual-intervention-required" {
     action {
         action_type = "Octopus.Manual"
         environments = ["production"]
-        notes = "Notes"
+        notes = ""
         properties = {
             Octopus.Action.Manual.BlockConcurrentDeployments = "False"
             Octopus.Action.Manual.Instructions = "Do you approve this deployment?"
+            Octopus.Action.RunOnServer = "false"
         }
     }
 }
@@ -45,6 +46,7 @@ step "deploy-a-helm-chart" {
             Octopus.Action.Package.DownloadOnTentacle = "False"
             Octopus.Action.Package.FeedId = "bitnami"
             Octopus.Action.Package.PackageId = "nginx"
+            Octopus.Action.RunOnServer = "false"
         }
         worker_pool_variable = ""
 
@@ -69,6 +71,7 @@ step "success-report" {
             Octopus.Action.Email.Body = "The deployment of the app was successful"
             Octopus.Action.Email.Subject = "Deployment was successful!"
             Octopus.Action.Email.To = "report@example.org"
+            Octopus.Action.RunOnServer = "false"
         }
     }
 }
