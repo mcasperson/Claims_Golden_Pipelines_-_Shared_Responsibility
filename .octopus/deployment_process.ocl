@@ -23,7 +23,7 @@ step "deploy-application" {
                 echo "Deploying application"
                 sleep 5
                 echo "Deployment done"
-                EOT
+                    EOT
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "Bash"
         }
